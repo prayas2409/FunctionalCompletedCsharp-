@@ -1,0 +1,11 @@
+C:\Users\Admin\source\repos\FunctionalPrograms\FunctionalPrograms\bin\Debug\netcoreapp2.1\FunctionalPrograms.deps.json
+C:\Users\Admin\source\repos\FunctionalPrograms\FunctionalPrograms\bin\Debug\netcoreapp2.1\FunctionalPrograms.runtimeconfig.json
+C:\Users\Admin\source\repos\FunctionalPrograms\FunctionalPrograms\bin\Debug\netcoreapp2.1\FunctionalPrograms.runtimeconfig.dev.json
+C:\Users\Admin\source\repos\FunctionalPrograms\FunctionalPrograms\bin\Debug\netcoreapp2.1\FunctionalPrograms.dll
+C:\Users\Admin\source\repos\FunctionalPrograms\FunctionalPrograms\bin\Debug\netcoreapp2.1\FunctionalPrograms.pdb
+C:\Users\Admin\source\repos\FunctionalPrograms\FunctionalPrograms\obj\Debug\netcoreapp2.1\FunctionalPrograms.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\FunctionalPrograms\FunctionalPrograms\obj\Debug\netcoreapp2.1\FunctionalPrograms.AssemblyInfoInputs.cache
+C:\Users\Admin\source\repos\FunctionalPrograms\FunctionalPrograms\obj\Debug\netcoreapp2.1\FunctionalPrograms.AssemblyInfo.cs
+C:\Users\Admin\source\repos\FunctionalPrograms\FunctionalPrograms\obj\Debug\netcoreapp2.1\FunctionalPrograms.dll
+C:\Users\Admin\source\repos\FunctionalPrograms\FunctionalPrograms\obj\Debug\netcoreapp2.1\FunctionalPrograms.pdb
+C:\Users\Admin\source\repos\FunctionalPrograms\FunctionalPrograms\obj\Debug\netcoreapp2.1\FunctionalPrograms.csprojAssemblyReference.cache
