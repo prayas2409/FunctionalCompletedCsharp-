@@ -1,10 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Utility.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Prayas Pagade"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace FunctionalPrograms
 {
-    class Utility
+    using System;
+
+    /// <summary>
+    /// This class has various methods that are used in other programs
+    /// </summary>
+    public class Utility
     {
         /// <summary>
         ///  IsInteger Determines whether the specified input is integer.
@@ -13,34 +20,51 @@ namespace FunctionalPrograms
         /// <returns>
         ///   <c>true</c> if the specified input is integer; otherwise, <c>false</c>.
         /// </returns>
-        public static int IsInteger(String input)
+        public static int IsInteger(string input)
         {
             int num;
-            if (Int32.TryParse(input, out num)) return Convert.ToInt32(input);
+            if (int.TryParse(input, out num))
+            {
+                return Convert.ToInt32(input);
+            }
             else
             {
-                while (Int32.TryParse(input, out num) == false)
+                //// method tries to convert the string to integer num untill its succesful
+                while (int.TryParse(input, out num) == false)
                 {
                     Console.WriteLine("You have not entered an integer number please try again");
                     input = Console.ReadLine();
                 }
+
                 return Convert.ToInt32(input);
             }
         }
-        public static double IsDouble(String input)
+
+        /// <summary>
+        /// Determines whether the specified input is double.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>double value</returns>
+        public static double IsDouble(string input)
         {
             double num;
-            if (Double.TryParse(input, out num)) return num;
+            if (double.TryParse(input, out num))
+            {
+                return num;
+            }
             else
             {
-                while (Double.TryParse(input, out num) == false)
+                //// method tries to convert the string to double num untill its succesful
+                while (double.TryParse(input, out num) == false)
                 {
                     Console.WriteLine("You have not entered a number please try again");
                     input = Console.ReadLine();
                 }
+
                 return num;
             }
         }
+
         /// <summary>
         /// Determines whether the specified input is string.
         /// </summary>
@@ -48,7 +72,7 @@ namespace FunctionalPrograms
         /// <returns>
         /// <c>true</c> if the specified input is not having a number and any spaces; otherwise, <c>false</c>.
         /// </returns>
-        public static string IsString(String input)
+        public static string IsString(string input)
         {
             int flag = 1;
             do
@@ -60,7 +84,7 @@ namespace FunctionalPrograms
                     Console.WriteLine("You have entered space it should not be, please try again");
                     input = Console.ReadLine();
                 }
-                // it checks it the string has spaces
+                //// it checks it the string has spaces
                 for (i = 0; i < 10; i++)
                 {
                     if (input.Contains(i.ToString()))
@@ -70,28 +94,40 @@ namespace FunctionalPrograms
                         input = Console.ReadLine();
                         break;
                     }
-                    else flag = 0;
+                    else
+                    {
+                        flag = 0;
+                    }
                 }
-            } while (flag == 1);
+            }
+            while (flag == 1);
+
             return input;
         }
+
         /// <summary>Determines whether the specified input is boolean.</summary>
         /// <param name="input">The input.</param>
         /// <returns>
-        ///   <c>true</c> if the specified input is boolean; otherwise, <c>false</c>.</returns>
-
-        public static bool IsBoolean(String input)
+        /// <c>true</c> if the specified input is boolean; otherwise, <c>false</c>.</returns>
+        public static bool IsBoolean(string input)
         {
             input.ToLower();
             ////this check the value of input if its true or false
-            while(String.Equals(input,"true")!=true && String.Equals(input,"false")!= true)
+            while (string.Equals(input, "true") != true && string.Equals(input, "false") != true)
             {
                 input.ToLower();
                 Console.WriteLine("You have not entered a boolean value please try again");
                 input = Console.ReadLine();
             }
+
             return input.Equals("true") ? true : false;
         }
+
+        /// <summary>
+        /// This generic method prints the 2d array of any format.
+        /// </summary>
+        /// <typeparam name="Template">The type of the Template.</typeparam>
+        /// <param name="array">The array.</param>
         public static void Print2DArray<Template>(Template[,] array)
         {
             int rows = 0, cols = 0;
@@ -99,22 +135,33 @@ namespace FunctionalPrograms
             {
                 for (cols = 0; cols < array.GetLength(1); cols++)
                 {
-                    Console.Write("{0} ", array[rows,cols]);
-
+                    Console.Write("{0} ", array[rows, cols]);
                 }
+
                 Console.WriteLine();
             }
         }
+
+        /// <summary>
+        /// Generates random double vale
+        /// </summary>
+        /// <returns>returns the random double value</returns>
         public static double RandomDoubleGenerator()
         {
             Random rand = new Random();
             return rand.NextDouble();
         }
-        public static int RandomIntGenerator(int min,int max)
+
+        /// <summary>
+        /// Randoms the int generator.
+        /// </summary>
+        /// <param name="min">The minimum.</param>
+        /// <param name="max">The maximum.</param>
+        /// <returns>random integer number</returns>
+        public static int RandomIntGenerator(int min, int max)
         {
             Random rand = new Random();
             return rand.Next(min, max + 1);
         }
-
     }
 }

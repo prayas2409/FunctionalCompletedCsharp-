@@ -1,23 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ZeroTriplets.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Prayas Pagade"/>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace FunctionalPrograms
 {
-    class ZeroTriplets
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// The class executes the Zero triplet program
+    /// </summary>
+    public class ZeroTriplets
     {
-       public void Triplets()
+        /// <summary>
+        /// The method is executing the 0 triplets program
+        /// </summary>
+        public void Triplets()
         {
             int[] array = new int[8];
-            int i, j, k, counter = 0;
-
-          
-          Console.WriteLine("Please enter the values for array of 8 digits");
-
+            ////the variable are to traverse the array and counter counts number of triples
+            int i, j, k, counter = 0;          
+            Console.WriteLine("Please enter the values for array of 8 digits");
             for (i = 0; i < 8; i++)
             {
                 array[i] = Utility.IsInteger(Console.ReadLine());
             }
+
             for (i = 0; i < 6; i++)
             {
                 for (j = i + 1; j < 7; j++)
@@ -32,8 +44,8 @@ namespace FunctionalPrograms
                     }
                 }
             }
+
             Console.WriteLine("The number of triplets are " + counter);
         }
     }
 }
-

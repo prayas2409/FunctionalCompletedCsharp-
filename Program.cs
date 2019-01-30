@@ -1,17 +1,52 @@
-﻿using System;
-
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Program.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Prayas Pagade"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace FunctionalPrograms
 {
-    class Program
+    using System;
+
+    /// <summary>
+    /// The entry point to the project
+    /// </summary>
+    public class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// Defines the entry point of the application.
+        /// </summary>
+        /// <param name="args">The command line arguments.</param>
+        public static void Main(string[] args)
         {
+            string[] programs = { "Username", "Head&Tails", "LeapYear", "TableforPowerof2",
+                "HarmonicNumber", "PrimeFactors", "Gambler", "CouponNumber", "2dArray",
+                "Sumof3toZero", "Distance", "Permutations", "StopWatch", "TicTacToe", "Quadratic",
+                "WindChill"
+            };
+            for (int i = 0; i < programs.Length; i++)
+            {
+                Console.WriteLine("Enter {0} for {1}", i + 1, programs[i]);
+            }
+
             int flag = 1;
             do
             {
+                int number;
                 Console.WriteLine();
                 Console.WriteLine("Enter question number of program to execute it and Enter 0 to close");
-                int number = Utility.IsInteger(Console.ReadLine());
+
+                try
+                {
+                    number = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine("Please try entering value again again");
+                    number = Utility.IsInteger(Console.ReadLine());
+                }
+
                 Console.WriteLine("num : {0}", number);
                 switch (number)
                 {
@@ -88,7 +123,8 @@ namespace FunctionalPrograms
                         flag = 0;
                         break;
                 }
-            } while (flag == 1);
+            }
+            while (flag == 1);
         }
     }
 }
