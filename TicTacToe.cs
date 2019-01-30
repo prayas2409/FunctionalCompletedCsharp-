@@ -25,7 +25,7 @@ namespace FunctionalPrograms
         public int ValueAtPosition(int[,] array, int index)
         {
             int j, i = 0, num = 0;
-            ////traverse through complete array to check the number's position
+            ////traverse through complete array to check the number at the required position position
             for (i = 0; i < array.GetLength(0); i++)
             {
                 for (j = 0; j < array.GetLength(1); j++)
@@ -191,7 +191,7 @@ namespace FunctionalPrograms
             {
                 comp = Utility.RandomIntGenerator(1, 9);
                 value = this.ValueAtPosition(array, comp);
-
+                //// If the position is already taken
                 while (value == 0 || value == 1)
                 {
                     comp = Utility.RandomIntGenerator(1, 9);
@@ -216,12 +216,17 @@ namespace FunctionalPrograms
 
                 this.PrintGame(array);
                 Console.WriteLine("Enter the number from 1-9 where you'd like to place the point");
-                comp = Convert.ToInt32(Console.ReadLine());
+                comp = Utility.IsInteger(Console.ReadLine());
+                if (comp == 0)
+                {
+                    Console.WriteLine("Please enter the value between 0-9");
+                } 
+
                 value = this.ValueAtPosition(array, comp);
                 while (value == 0 || value == 1)
                 {
                     Console.WriteLine("The point is already marked please enter the number");
-                    comp = comp = Convert.ToInt32(Console.ReadLine());
+                    comp = Utility.IsInteger(Console.ReadLine());
                     value = this.ValueAtPosition(array, comp);
                 }
 
