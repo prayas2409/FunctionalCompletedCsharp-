@@ -21,7 +21,7 @@ namespace FunctionalPrograms
         /// counter counts till number of times coin is tossed
         /// heads is number of times head occured
         /// tails is number of times tail occured
-        /// perheads is pertage of times head occured
+        /// PERHEADS is pertage of times head occured
         /// </summary>
         public void Toss()
         {

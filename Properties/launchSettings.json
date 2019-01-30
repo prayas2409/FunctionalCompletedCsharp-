@@ -2,7 +2,7 @@
   "profiles": {
     "FunctionalPrograms": {
       "commandName": "Project",
-      "commandLineArgs": "5 7.9"
+      "commandLineArgs": "5 7.9 8.3"
     }
   }
 }

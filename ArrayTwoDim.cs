@@ -22,6 +22,7 @@ namespace FunctionalPrograms
         public void Array2D()
         {
             int rows, cols;
+            //// asking user to enter the values of rows and column
             Console.WriteLine("Enter the number of rows and colums");
             try
             {
@@ -30,6 +31,7 @@ namespace FunctionalPrograms
             }
             catch (Exception e)
             {
+                //// if any issue with the input it enters here
                 Console.WriteLine(e);
                 Console.WriteLine("Please try again");
                 rows = Utility.IsInteger(Console.ReadLine());
@@ -49,6 +51,8 @@ namespace FunctionalPrograms
         /// <returns>The integer array after getting data</returns>
         public int[,] FetchInt2DArray(int[,] array)
         {
+            //// rows and colums help to traverse
+            //// counter counts the element number to be shown to user
             int rows = 0, cols = 0, counter = 0;
             for (; rows < array.GetLength(0); rows++)
             {
@@ -56,6 +60,7 @@ namespace FunctionalPrograms
                 {
                     counter++;
                     Console.WriteLine("Enter the element {0}", counter);
+                    //// try to get input from user
                     try
                     {
                         array[rows, cols] = Convert.ToInt32(Console.ReadLine());
@@ -86,6 +91,7 @@ namespace FunctionalPrograms
                 {
                     counter++;
                     Console.WriteLine("Enter the element {0}", counter);
+                    //// trying to get boolean input from user
                     try
                     {
                         array[rows, cols] = Convert.ToBoolean(Console.ReadLine());
@@ -109,6 +115,7 @@ namespace FunctionalPrograms
         /// <returns> the fetched double array</returns>
         public double[,] FetchDouble2DArray(double[,] array)
         {
+            //// rows and cols help to traverse and counter counts number of elements entered and asks to add new one
             int rows = 0, cols = 0, counter = 0;
             for (; rows < array.GetLength(0); rows++)
             {

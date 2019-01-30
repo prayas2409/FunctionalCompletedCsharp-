@@ -23,6 +23,7 @@ namespace FunctionalPrograms
         public static int IsInteger(string input)
         {
             int num;
+            //// trying to convert to integer
             if (int.TryParse(input, out num))
             {
                 return Convert.ToInt32(input);
@@ -48,6 +49,7 @@ namespace FunctionalPrograms
         public static double IsDouble(string input)
         {
             double num;
+            //// trying to convert to double
             if (double.TryParse(input, out num))
             {
                 return num;
@@ -74,16 +76,12 @@ namespace FunctionalPrograms
         /// </returns>
         public static string IsString(string input)
         {
-            int flag = 1;
+            //// flag will be 1 untill any of the below conditions are matched else it's converted to zero
+            int flag = 0,i;
+            string[] specialchars = { "!", "|", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", ",", ".", "/" };
             do
             {
-                int i = 0;
-                if (input.Contains(" "))
-                {
-                    flag = 1;
-                    Console.WriteLine("You have entered space it should not be, please try again");
-                    input = Console.ReadLine();
-                }
+                flag = 0;
                 //// it checks it the string has spaces
                 for (i = 0; i < 10; i++)
                 {
@@ -94,14 +92,21 @@ namespace FunctionalPrograms
                         input = Console.ReadLine();
                         break;
                     }
+                    //// to check has space
+                    if (input.Contains(" "))
+                    {
+                        flag = 1;
+                        Console.WriteLine("You have entered space it should not be, please try again");
+                        input = Console.ReadLine();
+                        break;
+                    }
                     else
                     {
                         flag = 0;
                     }
-                }
+                }                                
             }
             while (flag == 1);
-
             return input;
         }
 
@@ -115,6 +120,7 @@ namespace FunctionalPrograms
             ////this check the value of input if its true or false
             while (string.Equals(input, "true") != true && string.Equals(input, "false") != true)
             {
+                //// converting the string to lower case as it could be in upper case too
                 input.ToLower();
                 Console.WriteLine("You have not entered a boolean value please try again");
                 input = Console.ReadLine();
@@ -131,6 +137,7 @@ namespace FunctionalPrograms
         public static void Print2DArray<Template>(Template[,] array)
         {
             int rows = 0, cols = 0;
+            //// traversing the array to print the elements in the array
             for (rows = 0; rows < array.GetLength(0); rows++)
             {
                 for (cols = 0; cols < array.GetLength(1); cols++)
@@ -143,7 +150,7 @@ namespace FunctionalPrograms
         }
 
         /// <summary>
-        /// Generates random double vale
+        /// Generates random double value between 0 and 1
         /// </summary>
         /// <returns>returns the random double value</returns>
         public static double RandomDoubleGenerator()
@@ -153,7 +160,7 @@ namespace FunctionalPrograms
         }
 
         /// <summary>
-        /// Randoms the int generator.
+        /// Randoms the int generator between max and min value.
         /// </summary>
         /// <param name="min">The minimum.</param>
         /// <param name="max">The maximum.</param>

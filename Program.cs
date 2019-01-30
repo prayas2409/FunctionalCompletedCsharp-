@@ -19,12 +19,13 @@ namespace FunctionalPrograms
         /// <param name="args">The command line arguments.</param>
         public static void Main(string[] args)
         {
-            string[] programs = { "Username", "Head&Tails", "LeapYear", "TableforPowerof2",
+            string[] programs = { "Username", "Head&Tails", "LeapYear", "TableforPowerof2 COMMAND LINE ARGUMENTS NEEDED",
                 "HarmonicNumber", "PrimeFactors", "Gambler", "CouponNumber", "2dArray",
                 "Sumof3toZero", "Distance", "Permutations", "StopWatch", "TicTacToe", "Quadratic",
-                "WindChill"
+                "WindChill COMMAND LINE ARGUMENTS NEEDED"
             };
-            for (int i = 0; i < programs.Length; i++)
+            int i, number;
+            for (i = 0; i < programs.Length; i++)
             {
                 Console.WriteLine("Enter {0} for {1}", i + 1, programs[i]);
             }
@@ -32,7 +33,11 @@ namespace FunctionalPrograms
             int flag = 1;
             do
             {
-                int number;
+                
+                for (i = 0; i < programs.Length; i++)
+                {
+                    Console.WriteLine("Enter {0} for {1}", i + 1, programs[i]);
+                }                
                 Console.WriteLine();
                 Console.WriteLine("Enter question number of program to execute it and Enter 0 to close");
 
@@ -54,8 +59,7 @@ namespace FunctionalPrograms
                         return;
                     case 1:
                         UserName f = new UserName();
-                        f.UserInput();
-                        Console.ReadLine();
+                        f.UserInput();                        
                         break;
                     case 2:
                         FlipCoin c = new FlipCoin();
@@ -115,14 +119,15 @@ namespace FunctionalPrograms
                         break;
                     case 16:
                         WindChill wc = new WindChill();
-                        wc.WindChillDemo(Convert.ToDouble(args[0]), Convert.ToDouble(args[1]));
+                        wc.WindChillDemo(Convert.ToDouble(args[1]), Convert.ToDouble(args[2]));
                         break;
                     default:
                         Console.WriteLine("Not yet created");
-                        Console.ReadLine();
                         flag = 0;
                         break;
                 }
+                Console.ReadKey();
+                Console.Clear();
             }
             while (flag == 1);
         }
