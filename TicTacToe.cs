@@ -173,78 +173,86 @@ namespace FunctionalPrograms
         /// </summary>
         public void TicTacToeDemo()
         {
-            int[,] array = new int[3, 3];
-            int i, j;
-
-            for (i = 0; i < 3; i++)
+            try
             {
-                for (j = 0; j < 3; j++)
+                int[,] array = new int[3, 3];
+                int i, j;
+                //// initializing the array to 2 as by default is 0 and we'll be adding 0 and 1 for storing the marks of user and computer 
+                for (i = 0; i < 3; i++)
                 {
-                    array[i, j] = 2;
+                    for (j = 0; j < 3; j++)
+                    {
+                        array[i, j] = 2;
+                    }
                 }
-            }
+                //// users position is marked as X
+                Console.WriteLine("Your positions are marked as X");
+                int value, comp, flag = 0;
 
-            Console.WriteLine("Your positions are marked as X");
-            int value, comp, flag = 0;
-
-            for (i = 0; i < 10; i++)
-            {
-                comp = Utility.RandomIntGenerator(1, 9);
-                value = this.ValueAtPosition(array, comp);
-                //// If the position is already taken
-                while (value == 0 || value == 1)
+                for (i = 0; i < 10; i++)
                 {
                     comp = Utility.RandomIntGenerator(1, 9);
                     value = this.ValueAtPosition(array, comp);
-                }
+                    //// If the position is already taken
+                    while (value == 0 || value == 1)
+                    {
+                        comp = Utility.RandomIntGenerator(1, 9);
+                        value = this.ValueAtPosition(array, comp);
+                    }
 
-                array = this.Enter(array, comp, 1);
-                flag = this.CheckIfWon(array, 1);
-                if (flag == 1)
-                {
-                    Console.WriteLine("You losse");
+                    //// adding new value at random number to array
+                    array = this.Enter(array, comp, 1);
+                    flag = this.CheckIfWon(array, 1);
+                    if (flag == 1)
+                    {
+                        Console.WriteLine("You losse");
+                        this.PrintGame(array);
+                        return;
+                    }
+                    //// checking if the array is filled by 0 or 1
+                    flag = this.CheckIfEnd(array);
+                    if (flag == 1)
+                    {
+                        this.PrintGame(array);
+                        return;
+                    }
+                    //// printing the game
                     this.PrintGame(array);
-                    return;
-                }
-
-                flag = this.CheckIfEnd(array);
-                if (flag == 1)
-                {
-                    this.PrintGame(array);
-                    return;
-                }
-
-                this.PrintGame(array);
-                Console.WriteLine("Enter the number from 1-9 where you'd like to place the point");
-                comp = Utility.IsInteger(Console.ReadLine());
-                if (comp == 0)
-                {
-                    Console.WriteLine("Please enter the value between 0-9");
-                } 
-
-                value = this.ValueAtPosition(array, comp);
-                while (value == 0 || value == 1)
-                {
-                    Console.WriteLine("The point is already marked please enter the number");
+                    Console.WriteLine("Enter the number from 1-9 where you'd like to place the point");
                     comp = Utility.IsInteger(Console.ReadLine());
+                    if (comp == 0)
+                    {
+                        Console.WriteLine("Please enter the value between 0-9");
+                    }
+                    //// Checking if this position is alraedy filled
                     value = this.ValueAtPosition(array, comp);
-                }
+                    while (value == 0 || value == 1)
+                    {
+                        Console.WriteLine("The point is already marked please enter the number");
+                        comp = Utility.IsInteger(Console.ReadLine());
+                        value = this.ValueAtPosition(array, comp);
+                    }
 
-                array = this.Enter(array, comp, 0);
-                flag = this.CheckIfWon(array, 0);
-                if (flag == 1)
-                {
-                    Console.WriteLine("You Win");
-                    this.PrintGame(array);
-                    return;
-                }
+                    array = this.Enter(array, comp, 0);
+                    flag = this.CheckIfWon(array, 0);
+                    if (flag == 1)
+                    {
+                        Console.WriteLine("You Win");
+                        this.PrintGame(array);
+                        return;
+                    }
 
-                flag = this.CheckIfEnd(array);
-                if (flag == 1)
-                {
-                    this.PrintGame(array);
-                    return;
+                    flag = this.CheckIfEnd(array);
+                    if (flag == 1)
+                    {
+                        this.PrintGame(array);
+                        return;
+                    }
                 }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
     }

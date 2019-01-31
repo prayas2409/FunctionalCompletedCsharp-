@@ -85,6 +85,7 @@ namespace FunctionalPrograms
         public bool[,] FetchBool2DArray(bool[,] array)
         {
             int rows = 0, cols = 0, counter = 0;
+               //// traversing the 2 da boolean array
             for (; rows < array.GetLength(0); rows++)
             {
                 for (cols = 0; cols < array.GetLength(1); cols++)

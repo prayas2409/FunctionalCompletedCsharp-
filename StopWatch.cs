@@ -8,7 +8,6 @@
 namespace FunctionalPrograms
 {
     using System;
-    using System.Collections.Generic;
     using System.Text;
 
     /// <summary>
@@ -21,13 +20,20 @@ namespace FunctionalPrograms
         /// </summary>
         public void StopWatchDemo()
         {
-            //// start holds the stating time and stop holding ending time
-            int start, stop;
-            start = DateTime.Now.Second;
-            Console.WriteLine("Timer started: please press enter to stop ");
-            Console.ReadLine();
-            stop = DateTime.Now.Second;
-            Console.WriteLine("Elapsed time in seconds {0} ", stop - start);
+            try
+            {
+                //// start holds the stating time and stop holding ending time
+                int start, stop;
+                start = DateTime.Now.Second;
+                Console.WriteLine("Timer started: please press enter to stop ");
+                Console.ReadLine();
+                stop = DateTime.Now.Second;
+                Console.WriteLine("Elapsed time in seconds {0} ", stop - start);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

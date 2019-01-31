@@ -37,52 +37,58 @@ namespace FunctionalPrograms
                 Console.WriteLine("Please try again");
                 numcoupon = Utility.IsInteger(Console.ReadLine());
             }
-            //// coupons store all the coupons in given range
-            int[] coupons = new int[numcoupon];
-            //// couponcounter stores if the number was generated previosuly
-            int[] couponscounter = new int[numcoupon];
-            //// initializing counting array and th ecoupon array
-            for (counter = 0; counter < numcoupon; counter++)
+
+            try
             {
-                coupons[counter] = counter + 1;
-                couponscounter[counter] = 0;
-            }
-            //// trying to generate new tokens
-            while (count < numcoupon)
-            {
-                count = 0;
-                rcoupon++;
-                rand = Utility.RandomIntGenerator(1, numcoupon + 1);
-                Console.WriteLine("random {0} ", rand);
-                
-                Console.WriteLine();
-                if (count >= numcoupon)
+                //// coupons store all the coupons in given range
+                int[] coupons = new int[numcoupon];
+                //// couponcounter stores if the number was generated previosuly
+                int[] couponscounter = new int[numcoupon];
+                //// initializing counting array and th ecoupon array
+                for (counter = 0; counter < numcoupon; counter++)
                 {
-                    break;
+                    coupons[counter] = counter + 1;
+                    couponscounter[counter] = 0;
                 }
-                else
+                //// trying to generate new tokens
+                while (count < numcoupon)
                 {
-                    //// checking if the number is new
+                    count = 0;
+                    rcoupon++;
+                    //// generate random integer between 1 and the number including them
+                    rand = Utility.RandomIntGenerator(1, numcoupon + 1);
+                    if (count >= numcoupon)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        //// checking if the number is new
+                        for (counter = 0; counter < numcoupon; counter++)
+                        {
+                            if (coupons[counter] == rand && couponscounter[counter] == 0)
+                            {
+                                couponscounter[counter] = 1;
+                                break;
+                            }
+                        }
+                    }
+                    //// checking if all the elements are generated
                     for (counter = 0; counter < numcoupon; counter++)
                     {
-                        if (coupons[counter] == rand && couponscounter[counter] == 0)
+                        if (couponscounter[counter] == 1)
                         {
-                            couponscounter[counter] = 1;
-                            break;
+                            count++;
                         }
                     }
                 }
-                //checking if all the elements are generated
-                for (counter = 0; counter < numcoupon; counter++)
-                {
-                    if (couponscounter[counter] == 1)
-                    {
-                        count++;
-                    }
-                }
-            }
 
-            Console.WriteLine("Total random numbers needed: {0} ", rcoupon);
-        }
+                Console.WriteLine("Total random numbers needed: {0} ", rcoupon);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        } 
     }
 }

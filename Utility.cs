@@ -77,7 +77,7 @@ namespace FunctionalPrograms
         public static string IsString(string input)
         {
             //// flag will be 1 untill any of the below conditions are matched else it's converted to zero
-            int flag = 0,i;
+            int flag = 0, i;
             string[] specialchars = { "!", "|", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", ",", ".", "/" };
             do
             {

@@ -21,6 +21,8 @@ namespace FunctionalPrograms
         /// </summary>
         public void SqrtDistance()
         {
+            try
+            { 
             int x, y;
             Console.WriteLine("Enter the value of x and y");
             x = Convert.ToInt32(Console.ReadLine());
@@ -28,6 +30,11 @@ namespace FunctionalPrograms
             double dist;
             dist = Math.Sqrt((x * x) + (y * y));
             Console.WriteLine("Distance is {0}", dist);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

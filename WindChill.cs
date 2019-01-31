@@ -19,13 +19,20 @@ namespace FunctionalPrograms
         /// <summary>
         /// Executes the windchill program
         /// </summary>
-        /// <param name="t">The t.</param>
-        /// <param name="v">The v.</param>
+        /// <param name="t">The T is temperature in Fahrenheit.</param>
+        /// <param name="v">The v is the speed of winds in miles per hour.</param>
         public void WindChillDemo(double t, double v)
         {
-            double w;
-            w = 35.74 + (0.6215 * t) + (0.4275 * t - 35.75) * Math.Pow(v, 0.16);
-            Console.WriteLine("W= " + w + " and v= " + v);
+            try
+            {
+                double w;
+                w = 35.74 + (0.6215 * t) + (((0.4275 * t) - 35.75) * Math.Pow(v, 0.16));
+                Console.WriteLine("W= " + w + " and v= " + v);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

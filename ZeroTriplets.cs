@@ -29,7 +29,7 @@ namespace FunctionalPrograms
             {
                 array[i] = Utility.IsInteger(Console.ReadLine());
             }
-
+            //// traversing the array to search the triplets
             for (i = 0; i < 6; i++)
             {
                 for (j = i + 1; j < 7; j++)

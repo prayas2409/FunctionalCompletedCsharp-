@@ -20,33 +20,40 @@ namespace FunctionalPrograms
         /// </summary>
         public void QuadraticDemo()
         {
-            //// a, b, c are the varaibles that store the values of expression to find the roots
-            int a, b, c, delta;
-            //// holds value of roots
-            double root1, root2;
-            Console.WriteLine("Expression ax^2+bx+c=0 ");
-            Console.WriteLine("Enter the value of a");
-            a = Utility.IsInteger(Console.ReadLine());
-            Console.WriteLine("Enter the value of b");
-            b = Utility.IsInteger(Console.ReadLine());
-            Console.WriteLine("Enter the value of c");
-            c = Utility.IsInteger(Console.ReadLine());
-            delta = (b * b) - (4 * (a * c));
-            ////if delta is negetive it gives imaginary roots
-            if (delta < 0)
+            try
             {
-                root1 = -b / 2 * a;
-                root2 = -b / 2 * a;
-                delta = -delta;
-                Console.WriteLine("Root 1 is : {0} + {1}i", root1, Math.Sqrt(delta) / 2 * a);
-                Console.WriteLine("Root 2 is : {0} - {1}i", root1, Math.Sqrt(delta) / 2 * a);
+                //// a, b, c are the varaibles that store the values of expression to find the roots
+                int a, b, c, delta;
+                //// holds value of roots
+                double root1, root2;
+                Console.WriteLine("Expression ax^2+bx+c=0 ");
+                Console.WriteLine("Enter the value of a");
+                a = Utility.IsInteger(Console.ReadLine());
+                Console.WriteLine("Enter the value of b");
+                b = Utility.IsInteger(Console.ReadLine());
+                Console.WriteLine("Enter the value of c");
+                c = Utility.IsInteger(Console.ReadLine());
+                delta = (b * b) - (4 * (a * c));
+                ////if delta is negetive it gives imaginary roots
+                if (delta < 0)
+                {
+                    root1 = -b / 2 * a;
+                    root2 = -b / 2 * a;
+                    delta = -delta;
+                    Console.WriteLine("Root 1 is : {0} + {1}i", root1, Math.Sqrt(delta) / 2 * a);
+                    Console.WriteLine("Root 2 is : {0} - {1}i", root1, Math.Sqrt(delta) / 2 * a);
+                }
+                else
+                {
+                    root1 = (-b / 2 * a) - (Math.Sqrt(delta) / 2 * a);
+                    root2 = (-b / 2 * a) + (Math.Sqrt(delta) / 2 * a);
+                    Console.WriteLine("Root 1 is : {0}", root1);
+                    Console.WriteLine("Root 2 is : {0}", root2);
+                }
             }
-            else
+            catch (Exception e)
             {
-                root1 = (-b / 2 * a) - (Math.Sqrt(delta) / 2 * a);
-                root2 = (-b / 2 * a) + (Math.Sqrt(delta) / 2 * a);
-                Console.WriteLine("Root 1 is : {0}", root1);
-                Console.WriteLine("Root 2 is : {0}", root2);
+                Console.WriteLine(e.Message);
             }
         }
     }

@@ -21,15 +21,22 @@ namespace FunctionalPrograms
         /// </summary>
         public void StringPermutations()
         {
-            string var;
-            int i;
-            Console.WriteLine("Enter the string to find the permutations");
-            var = Utility.IsString(Console.ReadLine());
-            for (i = 0; i < var.Length; i++)
+            try
             {
-                Console.WriteLine("For {0} ", var[i]);
-                this.Permute(var[i].ToString(), var.Remove(i, 1));
-                Console.WriteLine();
+                string var;
+                int i;
+                Console.WriteLine("Enter the string to find the permutations");
+                var = Utility.IsString(Console.ReadLine());
+                for (i = 0; i < var.Length; i++)
+                {
+                    Console.WriteLine("For {0} ", var[i]);
+                    this.Permute(var[i].ToString(), var.Remove(i, 1));
+                    Console.WriteLine();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
 
